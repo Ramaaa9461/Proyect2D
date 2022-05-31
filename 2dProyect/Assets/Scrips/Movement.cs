@@ -5,7 +5,9 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] float vel = 1.0f;
+    Vector3 direction;
     bool inMove = false;
+
 
     public void Move(Orientation orientation)
     {
@@ -13,34 +15,39 @@ public class Movement : MonoBehaviour
         {
             case Orientation.Up:
 
-                StartCoroutine(FadeIn(new Vector3(0, vel, 0)));
-                // transform.position += Vector3.Lerp(transform.position, transform.position + new Vector3(0, vel, 0), ) // new Vector3(0, vel, 0);
+                direction = new Vector3(0, vel, 0);
+                
+
                 break;
 
             case Orientation.Down:
 
-                // transform.position += new Vector3(0, -vel, 0);
-                StartCoroutine(FadeIn(new Vector3(0, -vel, 0)));
+                direction = new Vector3(0, -vel, 0);
+
                 break;
 
             case Orientation.Left:
 
-                // transform.position += new Vector3(-vel, 0, 0);
-                StartCoroutine(FadeIn(new Vector3(-vel, 0, 0)));
+                direction = new Vector3(-vel, 0, 0);
 
                 break;
 
             case Orientation.Rigth:
 
-                // transform.position += new Vector3(vel, 0, 0);
-                StartCoroutine(FadeIn(new Vector3(vel, 0, 0)));
+                direction = new Vector3(vel, 0, 0);
 
                 break;
+        }
+
+        if (!inMove)
+        {
+            StartCoroutine(FadeIn(direction));
         }
     }
 
     IEnumerator FadeIn(Vector3 nextPosition)
     {
+            inMove = true;
 
             float progress = 0;
             Vector3 newPositon = transform.position + nextPosition;
@@ -54,6 +61,6 @@ public class Movement : MonoBehaviour
             }
 
             transform.position = newPositon;
-
+            inMove = false;
     }
 }
