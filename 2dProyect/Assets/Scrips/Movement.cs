@@ -8,7 +8,6 @@ public class Movement : MonoBehaviour
     Vector3 direction;
     bool inMove = false;
 
-
     public void Move(Orientation orientation)
     {
         switch (orientation)
@@ -17,7 +16,6 @@ public class Movement : MonoBehaviour
 
                 direction = new Vector3(0, vel, 0);
                 
-
                 break;
 
             case Orientation.Down:
@@ -56,7 +54,7 @@ public class Movement : MonoBehaviour
             while (progress <= 1)
             {
                 transform.position = Vector3.Lerp(initialPosition, newPositon, progress);
-                progress += Time.deltaTime * 3;
+                progress += Time.deltaTime * 4;
                 yield return null;
             }
 

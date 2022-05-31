@@ -123,6 +123,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &126681356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 126681358}
+  - component: {fileID: 126681357}
+  m_Layer: 0
+  m_Name: BombCreator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &126681357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126681356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60e3b075fbdcb4498dfec93f3e2adfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 1778140710196091399, guid: 23f5863cd71315042b63f704425b4ceb, type: 3}
+  player: {fileID: 1386725075}
+--- !u!4 &126681358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126681356}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3842576, y: 0.32043755, z: -0.032573838}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,8 +406,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302626960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.47, y: 2.99, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.4988, y: 3.0119, z: 0}
+  m_LocalScale: {x: 0.7284647, y: 0.9919, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -423,6 +469,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  bombEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 126681357}
+        m_TargetAssemblyTypeName: BombCreator, Assembly-CSharp
+        m_MethodName: CreateBomb
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Up: 273
+  Down: 274
+  Left: 276
+  Rigth: 275
+  Bomb: 32
 --- !u!4 &1338811207
 Transform:
   m_ObjectHideFlags: 0
@@ -448,9 +514,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1386725075}
   - component: {fileID: 1386725074}
-  - component: {fileID: 1386725076}
   - component: {fileID: 1386725077}
   - component: {fileID: 1386725078}
+  - component: {fileID: 1386725076}
   - component: {fileID: 1386725079}
   m_Layer: 0
   m_Name: Player
@@ -519,7 +585,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386725072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.655, y: -0.002, z: 0}
+  m_LocalPosition: {x: -0.673, y: 1.002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -538,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e58a0d94885be47b1ee1e2fdca9ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vel: 1
+  vel: 1.5
 --- !u!50 &1386725077
 Rigidbody2D:
   serializedVersion: 4

@@ -5,35 +5,51 @@ using UnityEngine.Events;
 public class Input : MonoBehaviour
 {
     public EnumEvent enumEvent;
+    public UnityEvent bombEvent;
+
+    [SerializeField] KeyCode Up;
+    [SerializeField] KeyCode Down;
+    [SerializeField] KeyCode Left;
+    [SerializeField] KeyCode Rigth;
+    [SerializeField] KeyCode Bomb;
 
     void Update()
     {
-        GetInput(1.0f);
+        GetInput();
+        GetInputBomb();
     }
 
-    private void GetInput(float position)
+    private void GetInput()
     {
        
-        if (UnityEngine.Input.GetKey(KeyCode.UpArrow))
+        if (UnityEngine.Input.GetKey(Up))
         {
             enumEvent.Invoke(Orientation.Up);
         }
         
-        if (UnityEngine.Input.GetKey(KeyCode.DownArrow))
+        if (UnityEngine.Input.GetKey(Down))
         {
             enumEvent.Invoke(Orientation.Down);
         }
 
-        if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
+        if (UnityEngine.Input.GetKey(Left))
         {
             enumEvent.Invoke(Orientation.Left);
         }
 
-        if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
+        if (UnityEngine.Input.GetKey(Rigth))
         {
             enumEvent.Invoke(Orientation.Rigth);
 
         }
 
+    }
+
+    private void GetInputBomb()
+    {
+        if (UnityEngine.Input.GetKeyDown(Bomb))
+        {
+            bombEvent.Invoke();
+        }
     }
 }
